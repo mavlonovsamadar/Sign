@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
-const Sign = () => {
+const Login = () => {
 const [value, setValue] = useState("")
 const [password, setPassword] = useState("")
 const navigate = useNavigate()
@@ -11,11 +11,12 @@ let name = "Samandar"
 let pass = "1992"
 
 const SignData = () => {
-    console.log(value)
-    console.log(password)
+    // console.log(value)
+    // console.log(password)
     if(value===name && pass===password){
-        // alert("Success")
-        navigate("/next")
+        alert("Success")
+         localStorage.setItem("auth", true);
+        navigate("/home")
     }
 }
 
@@ -43,7 +44,7 @@ const SignData = () => {
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         
       </Form.Group>
-      <Button variant="primary"onClick={SignData} >
+      <Button variant="primary" onClick={()=>SignData()} >
         Submit
       </Button>
     </Form>
@@ -55,4 +56,4 @@ const SignData = () => {
   )
 }
 
-export default Sign
+export default Login

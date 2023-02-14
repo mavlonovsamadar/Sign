@@ -1,24 +1,24 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import NextPage from './components/NextPage';
-import Sign from './components/Sign';
+import Home from './components/Home';
+import Login from './components/Login';
+import { Private } from './components/Private';
 
 function App() {
   return (
     <>
-    
+
       <Router>
         <Routes>
-          <Route path="/home" element={<Sign />}/>
-          <Route path="/next" element={<NextPage />}/>
+          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={
+            <Private>
+              <Home />
+            </Private>
+          } />
         </Routes>
       </Router>
-        
-        
-     
-   
-    
-    
+
     </>
   );
 }
